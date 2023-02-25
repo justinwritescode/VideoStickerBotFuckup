@@ -1,0 +1,107 @@
+# This workflow will build and push a Python application to an Azure Web App when a commit is pushed to your default branch.
+#
+# This workflow assumes you have already created the target Azure App Service web app.
+# For instructions see https://docs.microsoft.com/en-us/azure/app-service/quickstart-python?tabs=bash&pivots=python-framework-flask
+#
+# To configure this workflow:
+#
+# 1. Download the Publish Profile for your Azure Web App. You can download this file from the Overview page of your Web App in the Azure Portal.
+#    For more information: https://docs.microsoft.com/en-us/azure/app-service/deploy-github-actions?tabs=applevel#generate-deployment-credentials
+#
+# 2. Create a secret in your repository named AZURE_WEBAPP_PUBLISH_PROFILE, paste the publish profile contents as the value of the secret.
+#    For instructions on obtaining the publish profile see: https://docs.microsoft.com/azure/app-service/deploy-github-actions#configure-the-github-secret
+#
+# 3. Change the value for the AZURE_WEBAPP_NAME. Optionally, change the PYTHON_VERSION environment variables below.
+#
+# For more information on GitHub Actions for Azure: https://github.com/Azure/Actions
+# For more information on the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
+# For more samples to get started with GitHub Action workflows to deploy to Azure: https://github.com/Azure/actions-workflow-samples
+
+name: Build and deploy Python app to Azure Web App
+
+env:
+  AZURE_WEBAPP_NAME: VideoStickerCreator  # set this to the name of your Azure Web App
+  PYTHON_VERSION: '3.11'              # set this to the Python version to use
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup Python
+        uses: actions/setup-python@v4.5.0
+        with:
+          # Version range or exact version of Python or PyPy to use, using SemVer's version range syntax. Reads from .python-version if unset.
+          python-version: 3.11
+          # File containing the Python version to use. Example: .python-version
+          # python-version-file: # optional
+          # Used to specify a package manager for caching in the default directory. Supported values: pip, pipenv, poetry.
+          cache: 'pip' # optional
+          # The target architecture (x86, x64) of the Python or PyPy interpreter.
+          # architecture: # optional
+          # Set this option if you want the action to check for the latest available version that satisfies the version spec.
+          check-latest: true
+          # The token used to authenticate when fetching Python distributions from https://github.com/actions/python-versions. When running this action on github.com, the default value is sufficient. When running on GHES, you can pass a personal access token for github.com if you are experiencing rate limiting.
+          # token: # optional, default is ${{ github.server_url == 'https://github.com' && github.token || '' }}
+          # Used to specify the path to dependency files. Supports wildcards or a list of file names for caching multiple dependencies.
+          #cache-dependency-path: # optional
+          # Set this option if you want the action to update environment variables.
+          #  update-environment: # optional, default is true
+      
+      #- name: Create and start virtual environment
+      #  run: |
+      #    python -m venv venv
+      #    source venv/bin/activate
+
+      - name: Install dependencies
+        run: |
+          pip install pillow
+          pip install psycopg2-binary
+          sudo apt install -y python3-dev python3.11-dev libpython3.11-dev  libpq-dev 
+          #pip install -r requirements.txt
+          PYTHONPATH=lib_py.ask_sdk pip3 freeze requirements.txt > requirements-new.txt
+          grep -v -x -f requirements.txt requirements-new.txt > requirements-final.txt
+          echo "Installing the following dependencies:"
+          cat requirements-final.txt
+          pip install --no-deps -r requirements-final.txt -t py_lib
+
+      # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
+
+      - name: Upload artifact for deployment jobs
+        uses: actions/upload-artifact@v3
+        with:
+          name: python-app
+          path: .
+
+  deploy:
+    permissions:
+      contents: none
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: 'Development'
+      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+
+    steps:
+      - name: Download artifact from build job
+        uses: actions/download-artifact@v3
+        with:
+          name: python-app
+          path: .
+
+      - name: 'Deploy to Azure Web App'
+        id: deploy-to-webapp
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: ${{ env.AZURE_WEBAPP_NAME }}
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
