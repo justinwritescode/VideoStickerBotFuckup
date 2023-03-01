@@ -20,14 +20,14 @@
 name: Build and deploy Python app to Azure Web App
 
 env:
-  AZURE_WEBAPP_NAME: VideoStickerCreator  # set this to the name of your Azure Web App
-  PYTHON_VERSION: '3.11'              # set this to the Python version to use
+  AZURE_WEBAPP_NAME: VideoStickerCreator # set this to the name of your Azure Web App
+  PYTHON_VERSION: "3.11" # set this to the Python version to use
 
 on:
   push:
     branches:
       - main
-      
+
 concurrency:
   group: deploy-azure
   cancel-in-progress: true
@@ -48,7 +48,7 @@ jobs:
         run: |
           python -m venv venv
           source venv/bin/activate
-          
+
       - name: Install only the necessary packages
         run: |
           sudo apt install -y python3-dev python3.11-dev libpython3.11-dev  libpq-dev 
@@ -59,10 +59,11 @@ jobs:
           echo "Adding back the ones we want..."
           cat requirements.txt >> requirements-new.txt
           cat requirements-new.txt | grep -vE "$(cat unrequirements.txt)" > requirements-final.txt
+          cat requirements-always-require.txt >> requirements-final.txt
           awk 'NF{print $0 " --install-option=\"--no-deps\""}' requirements-final.txt > requirements.txt
           echo "Installing these requirements:"
           cat requirements.txt
-    
+
       - name: Set up dependency caching for faster installs
         uses: actions/cache@v3
         with:
@@ -87,7 +88,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     environment:
-      name: 'production'
+      name: "production"
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
@@ -97,7 +98,7 @@ jobs:
           name: python-app
           path: .
 
-      - name: 'Deploy to Azure Web App'
+      - name: "Deploy to Azure Web App"
         env:
           CUSTOM_REQUIREMENTSTXT_PATH: requirements-final.txt
         id: deploy-to-webapp
