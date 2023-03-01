@@ -1,2 +1,2 @@
 git+https://github.com/encode/httpx.git#egg=httpx
-cython --install-option="--no-deps" --install-option="--only-binary"
+cython
