@@ -59,7 +59,7 @@ jobs:
           echo "Adding back the ones we want..."
           cat requirements.txt >> requirements-new.txt
           cat requirements-new.txt | grep -vE "$(cat unrequirements.txt)" > requirements-final.txt
-          awk 'NF{print $0 " --no-deps"}' requirements-final.txt > requirements.txt
+          awk 'NF{print $0 " --install-option=\"--no-deps\""}' requirements-final.txt > requirements.txt
           echo "Installing these requirements:"
           cat requirements.txt
     
