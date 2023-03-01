@@ -22,6 +22,7 @@ name: Build and deploy Python app to Azure Web App
 env:
   AZURE_WEBAPP_NAME: VideoStickerCreator  # set this to the name of your Azure Web App
   PYTHON_VERSION: '3.11'              # set this to the Python version to use
+  CUSTOM_REQUIREMENTSTXT_PATH: requirements-final.txt
 
 on:
   push:
@@ -59,6 +60,7 @@ jobs:
           echo "Adding back the ones we want..."
           cat requirements.txt >> requirements-new.txt
           cat requirements-new.txt | grep -vE "$(cat unrequirements.txt)" > requirements-final.txt
+          awk 'NF{print $0 " --no-deps"}' requirements-final.txt > requirements-final.txt
           echo "Installing these requirements:"
           cat requirements-final.txt
     
