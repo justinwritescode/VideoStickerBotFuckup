@@ -1,6 +1,6 @@
 PyStark>=1.1.5
 git+https://github.com/encode/httpx.git#egg=httpx
 emoji>=1.7.0
-pyromod==1.5
+pyromod>=1.5
 requests>=2.27.1
 psycopg2-binary
