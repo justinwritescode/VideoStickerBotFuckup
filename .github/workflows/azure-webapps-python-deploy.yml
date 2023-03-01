@@ -22,7 +22,6 @@ name: Build and deploy Python app to Azure Web App
 env:
   AZURE_WEBAPP_NAME: VideoStickerCreator  # set this to the name of your Azure Web App
   PYTHON_VERSION: '3.11'              # set this to the Python version to use
-  CUSTOM_REQUIREMENTSTXT_PATH: requirements-final.txt
 
 on:
   push:
@@ -99,6 +98,8 @@ jobs:
           path: .
 
       - name: 'Deploy to Azure Web App'
+        env:
+          CUSTOM_REQUIREMENTSTXT_PATH: requirements-final.txt
         id: deploy-to-webapp
         uses: azure/webapps-deploy@0b651ed7546ecfc75024011f76944cb9b381ef1e
         with:
