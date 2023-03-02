@@ -49,8 +49,7 @@ jobs:
       - name: Create and start virtual environment
         working-directory: ${{ env.WORKING_DIRECTORY }}
         run: |
-          sudo apt install -y python${{ env.PYTHON_VERSION }}  \
-            libpq-dev python3-wheel
+          sudo apt install libpq-dev python3-wheel
           python -m ${{ env.VENV_NAME }} --copies antenv
           source antenv/bin/activate
           python -m venv ${{ env.VENV_NAME }}
