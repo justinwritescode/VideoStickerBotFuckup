@@ -50,8 +50,6 @@ jobs:
         working-directory: ${{ env.WORKING_DIRECTORY }}
         run: |
           sudo apt install -y python${{ env.PYTHON_VERSION }}  \
-            python3-dev python${{ env.PYTHON_VERSION }}-dev \
-            libpython${{ env.PYTHON_VERSION }}-dev  \
             libpq-dev python3-wheel
           python -m ${{ env.VENV_NAME }} --copies antenv
           source antenv/bin/activate
