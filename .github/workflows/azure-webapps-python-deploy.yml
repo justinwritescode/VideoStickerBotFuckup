@@ -63,6 +63,7 @@ jobs:
           echo "Adding back the ones we want..."
           cat requirements.txt >> requirements-new.txt
           cat requirements-new.txt | grep -vE "$(cat unrequirements.txt)" > requirements-final.txt
+          cat requirements-final.txt | grep -vE "$(cat no-options-requirements.txt)" > requirements-final.txt
           cat requirements-always-require.txt >> requirements-final.txt
           #awk 'NF{print $0 " --install-option=\"--no-deps\" --install-option=\"--only-binary\""}' requirements-final.txt > requirements.txt
           echo "Installing these requirements:"
@@ -77,7 +78,10 @@ jobs:
             ${{ runner.os }}-pip-
 
       - name: Install dependencies
-        run: pip install  --install-option="--no-deps" --install-option="--only-binary" -r requirements-final.txt
+        run: |
+          pip install  --install-option="--no-deps" --install-option="--only-binary" -r requirements-final.txt
+          pip install -r no-options-requirements.txt
+        
 
       # Optional: Add a step to run tests here (PyTest, Django test suites, etc.)
 
