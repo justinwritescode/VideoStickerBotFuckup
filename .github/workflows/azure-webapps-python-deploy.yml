@@ -93,9 +93,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: ${{ env.AZURE_WEBAPP_NAME }}
-          path: |
-            .
-            !${{ env.VENV_PATH }}/
+          path: ./**
   deploy:
     runs-on: ubuntu-latest
     needs: build
