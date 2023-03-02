@@ -111,7 +111,7 @@ jobs:
       
       - name: Activate the venv
         run:
-          python -m venv ${{ env.VENV_NAME }} 
+          # python -m venv ${{ env.VENV_NAME }} 
           source ${{ env.VENV_NAME }}/bin/activate
 
       - name: "Deploy to Azure Web App"
