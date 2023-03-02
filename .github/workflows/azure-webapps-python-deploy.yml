@@ -22,7 +22,8 @@ name: Build and deploy Python app to Azure Web App
 env:
   AZURE_WEBAPP_NAME: VideoStickerCreator # set this to the name of your Azure Web App
   PYTHON_VERSION: "3.11" # set this to the Python version to use
-  VENV_PATH: "./video-sticker-bot/venv"
+  WORKING_DIRECTORY: "./"
+  VENV_PATH: ${{ env.WORKING_DIRECTORY }} + "video-sticker-bot/venv"
 
 on:
   push:
@@ -47,6 +48,7 @@ jobs:
           cache: pip
 
       - name: Create and start virtual environment
+        working-directory: ${{ env.WORKING_DIRECTORY }}
         run: |
           # pip install --upgrade virtualenv
           # pip install --upgrade venv
@@ -54,6 +56,7 @@ jobs:
           source ${{ env.VENV_PATH }}/bin/activate
 
       - name: Install only the necessary packages
+        working-directory: ${{ env.WORKING_DIRECTORY }}
         run: |
           sudo apt install -y python3-dev python3.11-dev libpython3.11-dev  libpq-dev python3-wheel
           echo "Getting all the dependencies of the requirements..."
@@ -78,6 +81,7 @@ jobs:
             ${{ runner.os }}-pip-
 
       - name: Install dependencies
+        working-directory: ${{ env.WORKING_DIRECTORY }}
         run: |
           pip install  --no-deps --prefer-binary -r requirements-final.txt
           pip install -r no-options-requirements.txt
@@ -105,6 +109,11 @@ jobs:
         with:
           name: ${{ env.AZURE_WEBAPP_NAME }}
           path: .
+      
+      - name: Activate the venv
+        run:
+          # python -m venv ${{ env.VENV_PATH }}
+          source ${{ env.VENV_PATH }}/bin/activate
 
       - name: "Deploy to Azure Web App"
         env:
@@ -114,3 +123,4 @@ jobs:
         with:
           app-name: ${{ env.AZURE_WEBAPP_NAME }}
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+          package: ${{ env.WORKING_DIRECTORY }}
