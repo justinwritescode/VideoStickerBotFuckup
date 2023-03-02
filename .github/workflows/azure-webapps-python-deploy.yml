@@ -50,7 +50,7 @@ jobs:
       - name: Create and start virtual environment
         working-directory: ${{ env.WORKING_DIRECTORY }}
         run: |     
-          sudo apt install python${{ env.PYTHON_VERSION }}-venv
+          sudo apt install python${{ env.PYTHON_VERSION }}
           python -m ${{ env.VENV_NAME }} --copies antenv
           source antenv/bin/activate
           python -m venv ${{ env.VENV_NAME }}
