@@ -10,14 +10,13 @@ authors = [
 description = "A video sticker bot to turn MP4s and GIfs into Telegram stickers."
 requires-python = ">=3.11"
 keywords = ["video", "stickers", "telegram", "bot"]
-license = {text = "BSD-3-Clause"}
+license = {text = "MIT"}
 classifiers = [
     "Framework :: Django",
     "Programming Language :: Python :: 3",
 ]
 dependencies = [
     "requests",
-    'importlib-metadata; python_version>="3.11"',
     "venv",
     "virtualenv"
 ]
