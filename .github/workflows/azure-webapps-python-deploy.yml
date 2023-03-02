@@ -49,8 +49,11 @@ jobs:
 
       - name: Create and start virtual environment
         working-directory: ${{ env.WORKING_DIRECTORY }}
-        run: |     
-          sudo apt install python${{ env.PYTHON_VERSION }}
+        run: |
+          sudo apt install -y python${{ env.PYTHON_VERSION }}  \
+            python3-dev python${{ env.PYTHON_VERSION }}-dev \
+            libpython${{ env.PYTHON_VERSION }}-dev  \
+            libpq-dev python3-wheel
           python -m ${{ env.VENV_NAME }} --copies antenv
           source antenv/bin/activate
           python -m venv ${{ env.VENV_NAME }}
@@ -59,7 +62,10 @@ jobs:
       - name: Install only the necessary packages
         working-directory: ${{ env.WORKING_DIRECTORY }}
         run: |
-          sudo apt install -y python3-dev python3.11-dev libpython3.11-dev  libpq-dev python3-wheel
+          sudo apt install -y python${{ env.PYTHON_VERSION }}  \
+            python3-dev python${{ env.PYTHON_VERSION }}-dev \
+            libpython${{ env.PYTHON_VERSION }}-dev  \
+            libpq-dev python3-wheel
           echo "Getting all the dependencies of the requirements..."
           pip freeze -r requirements.txt > requirements-new.txt
           echo "Calculating the difference..."
