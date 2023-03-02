@@ -23,7 +23,7 @@ env:
   AZURE_WEBAPP_NAME: VideoStickerCreator # set this to the name of your Azure Web App
   PYTHON_VERSION: "3.11" # set this to the Python version to use
   WORKING_DIRECTORY: "./"
-  VENV_PATH: "./video-sticker-bot/venv"
+  VENV_NAME: "./antenv"
 
 on:
   push:
@@ -49,11 +49,12 @@ jobs:
 
       - name: Create and start virtual environment
         working-directory: ${{ env.WORKING_DIRECTORY }}
-        run: |
-          # pip install --upgrade virtualenv
-          # pip install --upgrade venv
-          python -m venv ${{ env.VENV_PATH }}
-          source ${{ env.VENV_PATH }}/bin/activate
+        run: |     
+          sudo apt install python${{ env.PYTHON_VERSION }}-venv
+          python -m ${{ env.VENV_NAME }} --copies antenv
+          source antenv/bin/activate
+          python -m venv ${{ env.VENV_NAME }}
+          source ${{ env.VENV_NAME }}/bin/activate
 
       - name: Install only the necessary packages
         working-directory: ${{ env.WORKING_DIRECTORY }}
@@ -110,13 +111,13 @@ jobs:
       
       - name: Activate the venv
         run:
-          # python -m venv ${{ env.VENV_PATH }}
-          source ${{ env.VENV_PATH }}/bin/activate
+          python -m ${{ env.VENV_NAME }} --copies antenv
+          source ${{ env.VENV_NAME }}/bin/activate
 
       - name: "Deploy to Azure Web App"
         env:
           CUSTOM_REQUIREMENTSTXT_PATH: requirements.txt
-          VIRTUALENV_NAME: ${{ env.VENV_PATH }}
+          VIRTUALENV_NAME: ${{ env.VENV_NAME }}
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2.2.6
         with:
