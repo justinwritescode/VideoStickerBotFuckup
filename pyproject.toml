@@ -18,5 +18,7 @@ classifiers = [
 dependencies = [
     "requests",
     'importlib-metadata; python_version<"3.11"',
+    "venv",
+    "virtualenv"
 ]
 dynamic = ["version"]
