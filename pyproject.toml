@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools", "setuptools-scm", "cython", "venv", "wheel"]
+requires = ["setuptools", "setuptools-scm", "cython", "venv", "wheel", "virtualenv"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -16,8 +16,6 @@ classifiers = [
     "Programming Language :: Python :: 3",
 ]
 dependencies = [
-    "requests",
-    "venv",
-    "virtualenv"
+    "requests"
 ]
 dynamic = ["version"]
