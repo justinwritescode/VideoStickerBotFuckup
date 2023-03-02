@@ -55,7 +55,7 @@ jobs:
 
       - name: Install only the necessary packages
         run: |
-          sudo apt install -y python3-dev python3.11-dev libpython3.11-dev  libpq-dev 
+          sudo apt install -y python3-dev python3.11-dev libpython3.11-dev  libpq-dev python3-wheel
           echo "Getting all the dependencies of the requirements..."
           pip freeze -r requirements.txt > requirements-new.txt
           echo "Calculating the difference..."
@@ -79,7 +79,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install  --install-option="--no-deps" --install-option="--only-binary" -r requirements-final.txt
+          pip install  --no-deps" --only-binary -r requirements-final.txt
           pip install -r no-options-requirements.txt
         
 
