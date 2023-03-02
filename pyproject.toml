@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools", "setuptools-scm", "Cython", "venv"]
+requires = ["setuptools", "setuptools-scm", "cython", "venv", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -17,7 +17,7 @@ classifiers = [
 ]
 dependencies = [
     "requests",
-    'importlib-metadata; python_version<"3.11"',
+    'importlib-metadata; python_version>="3.11"',
     "venv",
     "virtualenv"
 ]
