@@ -79,7 +79,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install  --no-deps --only-binary -r requirements-final.txt
+          pip install  --no-deps --only-binary :all: -r requirements-final.txt
           pip install -r no-options-requirements.txt
         
 
