@@ -85,7 +85,7 @@ jobs:
       - name: Install dependencies
         working-directory: ${{ env.WORKING_DIRECTORY }}
         run: |
-          pip install  --no-deps --prefer-binary -r requirements.txt
+          pip install --prefer-binary -r requirements.txt
           pip install -r no-options-requirements.txt
         
 
