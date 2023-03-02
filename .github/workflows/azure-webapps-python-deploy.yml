@@ -45,7 +45,6 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: ${{ env.PYTHON_VERSION }}
-          cache: pip
 
       - name: Create and start virtual environment
         working-directory: ${{ env.WORKING_DIRECTORY }}
@@ -62,10 +61,6 @@ jobs:
       - name: Install only the necessary packages
         working-directory: ${{ env.WORKING_DIRECTORY }}
         run: |
-          sudo apt install -y python${{ env.PYTHON_VERSION }}  \
-            python3-dev python${{ env.PYTHON_VERSION }}-dev \
-            libpython${{ env.PYTHON_VERSION }}-dev  \
-            libpq-dev python3-wheel
           echo "Getting all the dependencies of the requirements..."
           pip freeze -r requirements.txt > requirements-new.txt
           echo "Calculating the difference..."
