@@ -48,7 +48,8 @@ jobs:
 
       - name: Create and start virtual environment
         run: |
-          pip install --upgrade virtualenv venv
+          pip install --upgrade virtualenv
+          pip install --upgrade venv
           python -m venv ${{ env.VENV_PATH }}
           source venv/bin/activate
 
