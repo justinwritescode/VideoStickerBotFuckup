@@ -115,7 +115,8 @@ jobs:
 
       - name: "Deploy to Azure Web App"
         env:
-          CUSTOM_REQUIREMENTSTXT_PATH: requirements-final.txt
+          CUSTOM_REQUIREMENTSTXT_PATH: requirements.txt
+          VIRTUALENV_NAME: ${{ env.VENV_PATH }}
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2.2.6
         with:
