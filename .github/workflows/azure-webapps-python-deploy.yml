@@ -51,7 +51,7 @@ jobs:
           # pip install --upgrade virtualenv
           # pip install --upgrade venv
           python -m venv ${{ env.VENV_PATH }}
-          source {{ env.VENV_PATH }}/bin/activate
+          source ${{ env.VENV_PATH }}/bin/activate
 
       - name: Install only the necessary packages
         run: |
