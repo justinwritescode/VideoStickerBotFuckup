@@ -90,12 +90,15 @@ jobs:
           pip install -r no-options-requirements.txt
 
       # Optional: Add a step to run tests here (PyTest, Django test suites, etc.)
+      
+      - name: Zip the contents of the compilef app directory
+        uses: nguyenquyhy/zip-release@v0.3.0
 
       - name: Upload artifact for deployment jobs
         uses: actions/upload-artifact@v3
         with:
           name: ${{ env.AZURE_WEBAPP_NAME }}
-          path: ./**
+          path: ./release.zip
 
   deploy:
     runs-on: ubuntu-latest
@@ -111,10 +114,10 @@ jobs:
           name: ${{ env.AZURE_WEBAPP_NAME }}
           path: .
 
-      - name: Activate the venv
-        run:
-          # python -m venv ${{ env.VENV_NAME }}
-          source ${{ env.VENV_NAME }}/bin/activate
+      #- name: Activate the venv
+      #  run:
+      #    # python -m venv ${{ env.VENV_NAME }}
+      #    source ${{ env.VENV_NAME }}/bin/activate
 
       - name: "Deploy to Azure Web App"
         env:
@@ -125,4 +128,4 @@ jobs:
         with:
           app-name: ${{ env.AZURE_WEBAPP_NAME }}
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-          package: ${{ env.WORKING_DIRECTORY }}
+          package: release.zip
