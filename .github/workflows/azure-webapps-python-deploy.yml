@@ -60,19 +60,20 @@ jobs:
       - name: Install only the necessary packages
         working-directory: ${{ env.WORKING_DIRECTORY }}
         run: |
-          echo "Getting all the dependencies of the requirements..."
-          pip freeze -r requirements.txt > requirements-new.txt
-          echo "Calculating the difference..."
-          grep -v -x -f requirements-new.txt requirements.txt 
-          echo "Adding back the ones we want..."
-          cat requirements.txt >> requirements-new.txt
-          cat requirements-new.txt | grep -vE "$(cat unrequirements.txt)" > requirements-final.txt
-          cat requirements-final.txt | grep -vE "$(cat no-options-requirements.txt)" > requirements-final.txt
-          cat requirements-always-require.txt >> requirements-final.txt
-          #awk 'NF{print $0 " --install-option=\"--no-deps\" --install-option=\"--only-binary\""}' requirements-final.txt > requirements.txt
-          mv requirements-final.txt requirements.txt
-          echo "Installing these requirements:"
-          cat requirements.txt
+          pip install -r requirements.txt
+          # echo "Getting all the dependencies of the requirements..."
+          # pip freeze -r requirements.txt > requirements-new.txt
+          # echo "Calculating the difference..."
+          # grep -v -x -f requirements-new.txt requirements.txt 
+          # echo "Adding back the ones we want..."
+          # cat requirements.txt >> requirements-new.txt
+          # cat requirements-new.txt | grep -vE "$(cat unrequirements.txt)" > requirements-final.txt
+          # cat requirements-final.txt | grep -vE "$(cat no-options-requirements.txt)" > requirements-final.txt
+          # cat requirements-always-require.txt >> requirements-final.txt
+          # #awk 'NF{print $0 " --install-option=\"--no-deps\" --install-option=\"--only-binary\""}' requirements-final.txt > requirements.txt
+          # mv requirements-final.txt requirements.txt
+          # echo "Installing these requirements:"
+          # cat requirements.txt
 
       - name: Set up dependency caching for faster installs
         uses: actions/cache@v3
@@ -87,7 +88,6 @@ jobs:
         run: |
           pip install --prefer-binary -r requirements.txt
           pip install -r no-options-requirements.txt
-        
 
       # Optional: Add a step to run tests here (PyTest, Django test suites, etc.)
 
@@ -96,7 +96,7 @@ jobs:
         with:
           name: ${{ env.AZURE_WEBAPP_NAME }}
           path: ./**
-          
+
   deploy:
     runs-on: ubuntu-latest
     needs: build
@@ -110,10 +110,10 @@ jobs:
         with:
           name: ${{ env.AZURE_WEBAPP_NAME }}
           path: .
-      
+
       - name: Activate the venv
         run:
-          # python -m venv ${{ env.VENV_NAME }} 
+          # python -m venv ${{ env.VENV_NAME }}
           source ${{ env.VENV_NAME }}/bin/activate
 
       - name: "Deploy to Azure Web App"

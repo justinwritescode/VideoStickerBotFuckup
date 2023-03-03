@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm", "Cython", "python3-dev", "python3.11-dev", libpython3.11-dev",  "libpq-dev"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "Video Sticker Bot"
+authors = [
+    {name = "Justin Chase", email = "justin@justinwritescode.com"},
+]
+description = "A video sticker bot to turn MP4s and GIfs into Telegram stickers."
+requires-python = ">=3.11"
+keywords = ["video", "stickers", "telegram", "bot"]
+license = {text = "BSD-3-Clause"}
+classifiers = [
+    "Framework :: Django",
+    "Programming Language :: Python :: 3",
+]
+dependencies = [
+    "requests",
+    'importlib-metadata; python_version<"3.11"',
+    'ffmpeg'
+]
+dynamic = ["version"]
