@@ -1,0 +1,5 @@
+/Users/david/GitHub/VideoStickerBot2/C#/pyromod2.2.0-C#/obj/Debug/net6.0/pyrogram2.0.0-C#.csproj.AssemblyReference.cache
+/Users/david/GitHub/VideoStickerBot2/C#/pyromod2.2.0-C#/obj/Debug/net6.0/pyrogram2.0.0-C#.GeneratedMSBuildEditorConfig.editorconfig
+/Users/david/GitHub/VideoStickerBot2/C#/pyromod2.2.0-C#/obj/Debug/net6.0/pyrogram2.0.0-C#.AssemblyInfoInputs.cache
+/Users/david/GitHub/VideoStickerBot2/C#/pyromod2.2.0-C#/obj/Debug/net6.0/pyrogram2.0.0-C#.AssemblyInfo.cs
+/Users/david/GitHub/VideoStickerBot2/C#/pyromod2.2.0-C#/obj/Debug/net6.0/pyrogram2.0.0-C#.csproj.CoreCompileInputs.cache

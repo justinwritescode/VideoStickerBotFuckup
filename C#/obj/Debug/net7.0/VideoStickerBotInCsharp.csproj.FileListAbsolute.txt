@@ -1,0 +1,6 @@
+/Users/david/GitHub/VideoStickerBot2/C#/obj/Debug/net7.0/VideoStickerBotInCsharp.csproj.AssemblyReference.cache
+/Users/david/GitHub/VideoStickerBot2/C#/obj/Debug/net7.0/VideoStickerBotInCsharp.GeneratedMSBuildEditorConfig.editorconfig
+/Users/david/GitHub/VideoStickerBot2/C#/obj/Debug/net7.0/VideoStickerBotInCsharp.AssemblyInfoInputs.cache
+/Users/david/GitHub/VideoStickerBot2/C#/obj/Debug/net7.0/VideoStickerBotInCsharp.AssemblyInfo.cs
+/Users/david/GitHub/VideoStickerBot2/C#/obj/Debug/net7.0/VideoStickerBotInCsharp.csproj.CoreCompileInputs.cache
+/Users/david/GitHub/VideoStickerBot2/C#/obj/Debug/net7.0/VideoStickerBotInCsharp.MvcApplicationPartsAssemblyInfo.cache

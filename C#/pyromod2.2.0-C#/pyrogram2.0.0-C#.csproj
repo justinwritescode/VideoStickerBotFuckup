@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <PackageId>pyromod</PackageId>
+        <PackageVerioon>2.0.0-C#</PackageVerioon>       
+        <summary>A monkeypatcher add-on for Pyrogram that does conversation handling</summary>
+        <LicenseExpression>LGPLv3+</LicenseExpression>
+        <PackageTags>pyrogram;pyromod;pyrogram monkeypatcher;pyrogram monkeypatcher add-on;pyrogram monkeypatcher add-on for pyrogram;pyrogram monkeypatcher add-on for pyrogram that does conversation handling;pyrogram monkeypatcher add-on for pyrogram that does conversation handling and other cool stuff;pyrogram monkeypatcher add-on for pyrogram that does conversation handling and other cool stuff in other words;pyrogram monkeypatcher add-on for pyrogram that does conversation handling and other cool stuff in other words it is a compilation of utilities i developed for improving my personal experience with pyrogram;pyrogram monkeypatcher add-on for pyrogram that does conversation handling and other cool stuff in other words it is a compilation of utilities i developed for improving my personal experience with pyrogram it works together with pyrogram;pyrogram monkeypatcher add-on for pyrogram that does conversation handling and other cool stuff in other words it is a compilation of utilities i developed for improving my personal experience with pyrogram it works together with pyrogram it is not a fork modded version;pyrogram monkeypatcher add-on for pyrogram that does conversation handling and other cool stuff in other words it is a compilation of utilities i developed for improving my personal experience with pyrogram it works together with pyrogram it is not a fork modded version it does monkeypatching to add features to pyrogram classes on the go so i don't need to update on every pyrogram's release;pyrogram monkeypatcher add-on for pyrogram that does conversation handling and other cool stuff in other words it is a compilation of utilities i developed for improving my personal experience with pyrogram it works together with pyrogram it is not a fork modded version it does monkeypatching to add features to pyrogram classes on the go so i don't need to update on every pyrogram's release it works together with pyrogram it is not a fork modded version;pyrogram monkeypatcher add-on for pyrogram that does conversation handling and other cool stuff in other words it is a compilation of utilities i developed for improving my personal experience with pyrogram it works together with pyrogram it is not a fork modded version it does monkeypatching to add features to pyrogram classes on the go so i don't need to update on every pyrogram's release it works together with pyrogram it is not a fork modded version it does monkeypatching</PackageTags>
+        <Author>usernein; JustinWritedCode(the port tp C#)</Author>
+<!-- Author: usernein
+Requires-Python: >=3.8,<4.0
+Classifier: License :: Other/Proprietary License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: pyrogram (>=1.0)
+Description-Content-Type: text/markdown -->
+
+
+        <Description>
+            A monkeypatcher add-on for Pyrogram which does conversation handling and other cool stuff.
+            In other words, it is a compilation of utilities i developed for improving my personal experience with Pyrogram.
+            It works **together** with Pyrogram, it is **not** a fork/modded version. It does monkeypatching to add features to Pyrogram classes on the go (so i don't need to update on every Pyrogram's release).
+        </Description>
+
+        <copyright>
+        This project may include snippets of Pyrogram code
+        - Pyrogram - Telegram MTProto API Client Library for Python. Copyright (C) 2017-2022 Dan &lt;&lt;https://github.com/delivrance&gt;&gt;
+        Licensed under the terms of the [GNU Lesser General Public License v3 or later (LGPLv3+)](COPYING.lesser)
+        </copyright>
+    </PropertyGroup>
+
+    <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <IsPackable>false</IsPackable>
+    </PropertyGroup>
+
+
+</Project>

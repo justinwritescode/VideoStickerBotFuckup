@@ -1,0 +1,81 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/david/GitHub/VideoStickerBot2/C#/VideoStickerBotInCsharp.csproj": {}
+  },
+  "projects": {
+    "/Users/david/GitHub/VideoStickerBot2/C#/VideoStickerBotInCsharp.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/david/GitHub/VideoStickerBot2/C#/VideoStickerBotInCsharp.csproj",
+        "projectName": "VideoStickerBotInCsharp",
+        "projectPath": "/Users/david/GitHub/VideoStickerBot2/C#/VideoStickerBotInCsharp.csproj",
+        "packagesPath": "/Users/david/.nuget/packages/",
+        "outputPath": "/Users/david/GitHub/VideoStickerBot2/C#/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/david/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "/Users/justin/.nuget/packages": {},
+          "/usr/local/share/dotnet/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.pkg.github.com/The-Backroom/index.json": {},
+          "https://nuget.pkg.github.com/justinwritescode/index.json": {},
+          "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-eng/nuget/v3/index.json": {},
+          "https://pkgs.dev.azure.com/justinwritescode/_packaging/PowerShellModules/nuget/v2": {},
+          "https://pkgs.dev.azure.com/justinwritescode/_packaging/justinwritescode/nuget/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.Spark": {
+              "target": "Package",
+              "version": "[2.1.1, )"
+            },
+            "Telegram.Bot": {
+              "target": "Package",
+              "version": "[18.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.101/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

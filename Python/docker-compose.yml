@@ -1,0 +1,19 @@
+services:
+    bot:
+        env_file:
+            - .env
+        container_name: videostickerbot
+        build: .
+        image: python
+        volumes:
+            - ./pyproject.toml:${BUILD_DIR}/pyproject.toml
+            - ./Procfile:${APP_ROOT}/Procfile
+            - ./app.json:${APP_ROOT}/app.json
+            - ./requrementds.txt:${BUILD_DIR}/requrementds.txt
+            - ./unrequirements.txt:${BUILD_DIR}/unrequirements.txt
+            - ./requirements-always-require.txt:${BUILD_DIR}/requirements-always-require.txt
+            - ./v.sh:${BUILD_DIR}/compose.sh
+            - ./**.py:${APP_ROOT}
+            - ./venv/**:${APP_ROOT}/venv
+        command:
+            ${BUILD_DIR}/compose.sh

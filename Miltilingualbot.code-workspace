@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "C#"
+		},
+		{
+			"path": "Python"
+		}
+	],
+	"settings": {
+		"workbench.colorCustomizations": {
+			"activityBar.background": "#161193",
+			"titleBar.activeBackground": "#1F18CE",
+			"titleBar.activeForeground": "#FBFAFE"
+		}
+	}
+}

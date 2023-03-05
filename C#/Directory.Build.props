@@ -1,0 +1,39 @@
+<!--
+ * Directory.Build.targets
+ * 
+ *   Created: 2023-03-02-06:33:36
+ *   Modified: 2023-03-02-06:33:36
+ * 
+ *   Author: Justin Chase <justin@justinwritescode.com>
+ *   
+ *   Copyright © 2022-2023 Justin Chase, All Rights Reserved
+ *      License: MIT (https://opensource.org/licenses/MIT)
+-->
+
+<Project>
+  <PropertyGroup>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+  
+  </PropertyGroup>
+
+
+      <ItemGroup>
+    <!-- <PackageReference Include="Microsoft.NET.Test.Sdk" /> -->
+    <PackageReference Include="Telegram.Bot" Version="18.0.0" />
+    <!-- <PackageReference Include="xunit" />
+    <PackageReference Include="xunit.runner.visualstudio" /> -->
+    </ItemGroup>
+    <ItemGroup>
+        <Using Include="Telegram.Types" Alias="pyrogram.types" />
+        <Using Include="Telegram.Types" Alias="pyrogram.types" />
+        <Using Include="ReflecitionExtensions.ReflecitionExtensions" static="true" />
+        <Using Include="Microsoft.Spark" Alias="MSStark" />
+        <Using Include="Microsoft.Spark.Sql" Alias="MSStarkSql" />
+        <Using Include="Microsoft.Spark.Sql.Catalog.Database" Alias="MSStarkSqlDb" />
+        <Using Include="System.Environment" Alias="ENV" />
+        <Using Include="Telegram.Bot.Types.Enums" />
+        <Using Include="Telegram.Bot.Types.ReplyMarkups" />
+    </ItemGroup>
+</Project>

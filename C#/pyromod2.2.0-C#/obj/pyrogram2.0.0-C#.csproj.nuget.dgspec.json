@@ -1,0 +1,87 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/david/GitHub/VideoStickerBot2/C#/pyromod2.2.0-C#/pyrogram2.0.0-C#.csproj": {}
+  },
+  "projects": {
+    "/Users/david/GitHub/VideoStickerBot2/C#/pyromod2.2.0-C#/pyrogram2.0.0-C#.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/david/GitHub/VideoStickerBot2/C#/pyromod2.2.0-C#/pyrogram2.0.0-C#.csproj",
+        "projectName": "pyromod",
+        "projectPath": "/Users/david/GitHub/VideoStickerBot2/C#/pyromod2.2.0-C#/pyrogram2.0.0-C#.csproj",
+        "packagesPath": "/Users/david/.nuget/packages/",
+        "outputPath": "/Users/david/GitHub/VideoStickerBot2/C#/pyromod2.2.0-C#/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/david/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "/Users/justin/.nuget/packages": {},
+          "/usr/local/share/dotnet/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.pkg.github.com/The-Backroom/index.json": {},
+          "https://nuget.pkg.github.com/justinwritescode/index.json": {},
+          "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-eng/nuget/v3/index.json": {},
+          "https://pkgs.dev.azure.com/justinwritescode/_packaging/00314c4f-d843-460f-b500-904d3f1d13bd/nuget/v2/": {},
+          "https://pkgs.dev.azure.com/justinwritescode/_packaging/justinwritescode/nuget/v3/index.json": {},
+          "https://www.powershellgallery.com/api/v2": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "(, )"
+            },
+            "Telegram.Bot": {
+              "target": "Package",
+              "version": "[18.0.0, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "(, )"
+            },
+            "xunit.runner.visualstudio": {
+              "target": "Package",
+              "version": "(, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.101/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

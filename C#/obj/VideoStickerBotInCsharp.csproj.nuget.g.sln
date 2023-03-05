@@ -1,0 +1,18 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoStickerBotInCsharp.csproj.nuget.g", "VideoStickerBotInCsharp.csproj.nuget.g.targets", "{C4D52ECD-CAAE-4DCD-A3B9-90F9CCC54722}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C4D52ECD-CAAE-4DCD-A3B9-90F9CCC54722}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4D52ECD-CAAE-4DCD-A3B9-90F9CCC54722}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B987BFFC-4039-4DAF-8563-7A1BA7C15548}
+	EndGlobalSection
+EndGlobal
